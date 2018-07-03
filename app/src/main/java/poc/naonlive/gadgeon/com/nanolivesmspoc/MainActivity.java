@@ -2,10 +2,15 @@ package poc.naonlive.gadgeon.com.nanolivesmspoc;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.CountDownTimer;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import java.sql.Time;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     public static final int MY_PERMISSIONS_REQUEST_RECEIVE_SMS = 10;
@@ -39,6 +44,18 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+
+
+        new CountDownTimer(30000, 30000) {
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+                MainActivity.this.moveTaskToBack(true);
+            }
+        }.start();
     }
     @Override
     public void onRequestPermissionsResult(int requestCode,
